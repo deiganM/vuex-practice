@@ -8,17 +8,23 @@
     </div>
     <h1>{{ $store.state.randomCounter }}</h1>
     <div class="randomNumButtons">
-      <button @click="$store.dispatch('randomUp')">Random Up</button>
-      <button @click="$store.dispatch('randomDown')">Random Down</button>
+      <button @click="randomUp">Random Up</button>
+      <button @click="randomDown">Random Down</button>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import { mapActions } from 'vuex'
 export default {
   name: 'Home',
+  methods: {
+    ...mapActions({
+      randomUp: 'randomUp',
+      randomDown: 'randomDown',
+    }),
+  },
 }
 </script>
 
